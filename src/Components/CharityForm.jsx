@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import './CharityForm.css'
 import TextField from "@material-ui/core/TextField"
-import NavBar from './Widgets/NavBar'
 import { db } from '../firebase-config';
 import Button from './Widgets/Button'
 import { useHistory } from 'react-router-dom'
@@ -20,7 +19,6 @@ const CharityForm = () => {
         Tel: ''
     });
     const history = useHistory();
-    // const [firebaseUser, setFirebaseUser] = useState(false)
     const handleInputChange = event => {
         setData({
             ...data,
@@ -55,7 +53,6 @@ const CharityForm = () => {
 
     return (
         <div>
-            <NavBar />
             <div className="CharityForm-Container">
                 <h3>FORMULARIO DE POSTULACIÓN</h3>
                 <form className="CharityForm-form" onSubmit={sendData}>

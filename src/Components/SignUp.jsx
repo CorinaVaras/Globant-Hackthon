@@ -3,9 +3,7 @@ import './SignUp.css'
 import { useHistory } from 'react-router-dom'
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
-import logo from "../img/logo-white.png";
 import Button from "./Widgets/Button";
-// import Switch from "@material-ui/core/Switch";
 import { auth } from '../firebase-config'
 
 import { orange, grey } from '@material-ui/core/colors';
@@ -109,7 +107,6 @@ const register = (async () => {
 
   return (
     <>
-     
       <div className="container-signUp">
         <h1>Registrarse</h1>
         <p className='text-login'>

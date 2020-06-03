@@ -7,18 +7,13 @@ import { useHistory, Link } from 'react-router-dom'
 import { connect } from 'react-redux';
 
 const NavBar = ({user}) => {
-  
+
   const history = useHistory();
    
   const closeSession = () => {
       auth.signOut()
-      
       .then(() => {
-          
-          console.log('Saliendo');
           history.push("/")
-          console.log('despues del historypush')
-          
       })
       .catch((error) => {
           console.log(error);
@@ -26,24 +21,24 @@ const NavBar = ({user}) => {
   };
     return (
         <div className='container-navbar'>
-          <Link to='/Home' style={{textDecoration: 'none'}}>
-            <img className='navbar-logo' src={logo} alt="logoNavbar"/>
+          <Link to='/home' style={{textDecoration: 'none'}}>
+            <img className='navbar-logo' src={logo} alt="logo de Share Food"/>
           </Link>
 
             <div className='dropdown'> 
             {user.photoURL != null ? (
                 <img
+                  alt="foto de perfil usuario"
                   className="navbar-profile"
-                  alt="fotoperfil"
                   src={user.photoURL}
                 />
               ) : (
-            <img className="navbar-profile" alt="fotoperfil" src={perfil} />
+            <img className="navbar-profile" alt="foto de perfil usuario" src={perfil} />
             )}     
             
             <div className='dropdown-content'>
-                 <a href="/CharityForm">Ser Insitución Benéfica</a>
-                <a href='/welcome' onClick={() => closeSession()}>Cerrar Sesión</a> 
+              <Link to="/charityForm">Ser Insitución Benéfica</Link>
+              <Link to='/welcome' onClick={() => closeSession()}>Cerrar Sesión</Link> 
             </div>
             </div>
         </div>
