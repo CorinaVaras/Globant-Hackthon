@@ -1,12 +1,18 @@
 import React, { useState } from "react";
 import './SignUp.css'
 import { useHistory } from 'react-router-dom'
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, withStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import logo from "../img/logo-white.png";
 import Button from "./Widgets/Button";
-import Switch from "@material-ui/core/Switch";
+// import Switch from "@material-ui/core/Switch";
 import { auth } from '../firebase-config'
+
+import { orange, grey } from '@material-ui/core/colors';
+import FormGroup from '@material-ui/core/FormGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Switch from '@material-ui/core/Switch';
+
 
 // objeto de configuracion de estilos de material ui
 const useStyles = makeStyles((theme) => ({
@@ -24,6 +30,20 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const PurpleSwitch = withStyles({
+  switchBase: {
+    color: grey,
+    '&$checked': {
+      color: orange[800],
+    },
+    '&$checked + $track': {
+      backgroundColor: orange[800],
+    },
+  },
+  checked: {},
+  track: {},
+})(Switch);
+
 
 
 const SignUp = () => {
@@ -31,13 +51,14 @@ const SignUp = () => {
   const history = useHistory();
 
   // función del aceptar terminos y condiciones
+
 const [state, setState] = React.useState({
   checkedA: false,
-  checkedB: true,
+  
 });
 
-const handleChangeSwitch = (event) => {
-    setState({ ...state, [event.target.name]: event.target.checked });
+const handleChange = (event) => {
+  setState({ ...state, [event.target.name]: event.target.checked });
 };
 
 
@@ -88,9 +109,7 @@ const register = (async () => {
 
   return (
     <>
-      <div className='navbar-logoC'>
-        <img src={logo} alt="logo" />
-      </div>
+     
       <div className="container-signUp">
         <h1>Registrarse</h1>
         <p className='text-login'>
@@ -124,23 +143,16 @@ const register = (async () => {
         </form>
         <div className="container-login-end">
           <div className="container-conditions">
-            <Switch
-              checked={state.checkedA}
-              onChange={handleChangeSwitch}
-              color="default"
-              name="checkedA"
-              inputProps={{ "aria-label": "default checkbox" }}
-            />
-            <p className='condiciones'>
-              Al ingresar o registrarte, estás aceptando los Términos y
-              Condiciones de ShareFoord
-            </p>
+            <FormGroup>
+              <FormControlLabel
+                control={<PurpleSwitch checked={state.checkedA} onChange={handleChange} name="checkedA" />}
+                label="Al ingresar o registrarte, estás aceptando los Términos y
+                Condiciones de ShareFood"
+              />
+            </FormGroup>
           </div>
 
-          {(state.checkedA && <Button disabled={false} onClick={() => register()} title="Ingresar" />) || (
-            <Button type='submit'  disabled={true} title="Ingresar" />
-          )}
-
+          <Button disabled={!state.checkedA} type='submit' onClick={() => register()} title='Ingresar'/>
         </div>
       </div>
     </>

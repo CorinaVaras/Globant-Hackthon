@@ -1,12 +1,12 @@
 import React from 'react'
 import './Welcome.css'
 import ButtonP from './Widgets/Button'
-import logo from '../img/logo-white.png'
+import logo from '../img/Logo-Share.png'
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import MobileStepper from '@material-ui/core/MobileStepper';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
+import { Button } from '@material-ui/core';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import SwipeableViews from 'react-swipeable-views';
@@ -18,39 +18,46 @@ const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 const tutorialSteps = [
   {
-    label: 'Dona comida para las personas que más lo necesitan',
-  },
-  {
     label: 'Ayúdanos a ayudar! tu donativo es importante ',
   },
   {
     label: 'Si necesitas alimentos, entra a nuestra app',
+    
+  },
+  {
+    label: 'Dona para las personas que más lo necesitan',
   },
  
 ];
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 400,
-    backgroundColor: '#469D8B',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column',
+    maxWidth: 255,
+    textAlign:'center',
+   
+    
   },
   header: {
     display: 'flex',
+    justifyContent: 'center',
     alignItems: 'center',
-    height: 80,
-    marginTop: '3em',
-    paddingLeft: theme.spacing(4),
-    backgroundColor: theme.palette.background.default,
+    marginTop: '2em',
+    height: '6em',
+    backgroundColor:'#E5E5E5'
+    
   },
-  
 
 }));
 
 const Welcome = () => {
   const history = useHistory();
-
   const classes = useStyles();
   const theme = useTheme();
+  
   const [activeStep, setActiveStep] = React.useState(0);
   const maxSteps = tutorialSteps.length;
 
@@ -73,7 +80,7 @@ const Welcome = () => {
             
         <div className={classes.root}>
             <Paper square elevation={0} className={classes.header}>
-                <Typography>{tutorialSteps[activeStep].label}</Typography>
+                <Typography className='prueba' >{tutorialSteps[activeStep].label}</Typography>
             </Paper>
             <AutoPlaySwipeableViews
                 className="custom-carrousel"
@@ -103,13 +110,13 @@ const Welcome = () => {
                 <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
                     {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
                 </Button>
-                }
-            />
+                }/>
         </div>
         <div className='welcome-btn'>
         <ButtonP title='Entrar' onClick={() => history.push('/login')} />
         <ButtonP title='Registrarse' onClick={() => history.push('/signup')}/>
         </div>
+
 
         </div>
     )

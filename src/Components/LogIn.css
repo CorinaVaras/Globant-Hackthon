@@ -17,3 +17,10 @@
     width: 244.15px;
     height: 149px;
 }
+.container-end {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 18em;
+  }

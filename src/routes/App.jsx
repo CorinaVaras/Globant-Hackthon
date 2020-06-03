@@ -12,6 +12,7 @@ import CharityForm from "../Components/CharityForm";
 import NotFound from "../Components/NotFound";
 import Layout from "../Components/Layout";
 
+
 const App = () => (
   <BrowserRouter>
     <Switch>

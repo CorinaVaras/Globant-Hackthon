@@ -1,6 +1,6 @@
 .container-welcome{
     display: flex;
-    background-color: #469D8B;
+    background-color: #E5E5E5;
     height: 100vh;
     flex-direction: column;
     justify-content: center;
@@ -12,20 +12,21 @@
     height: 149px;
 }
 
+.MuiSvgIcon-root {
+    display: none !important;
+}
+
 .MuiMobileStepper-dot {
-    background-color: white !important;
+    background-color: gray!important;
     width: 10px !important;
     height: 10px !important;
     margin: 0px 4px !important;
 }
 
-.MuiSvgIcon-root {
-    display: none !important;
-}
-
 .MuiMobileStepper-dotActive {
     background-color: #EA8933 !important;    
 }
+
 
 .MuiMobileStepper-root {
     background-color: transparent !important;
@@ -34,26 +35,13 @@
     width: 20em;
 }
 
-.makeStyles-header-2 {
-    background-color: transparent !important;
-}
-
 .custom-carrousel img{
     display: none;
 }
-.MuiTypography-body1 { 
-    font-size: 1.2em !important;
-    color: white;
-    width: 15em !important;
-}
 
-.MuiMobileStepper-root {
-    color: white !important;
-    
-}
+
 .MuiSvgIcon-root {
-    color:#EA8933;
-    
+    color:#EA8933; 
 }
 
 .welcome-btn {
@@ -61,8 +49,11 @@
     flex-direction: column;
     margin-top: 4em;
 }
+.prueba {
+    font-size: 20px !important ;
+}
 
-.jss2{  background-color: #469d8b !important; }
+
 
 
 

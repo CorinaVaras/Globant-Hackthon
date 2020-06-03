@@ -110,7 +110,7 @@ const signUpGoogle = () => {
           value={password}
            />
         </form>
-        <div className="container-login-end">
+        <div className="container-end">
           <div className="container-conditions">
           </div>
           <Button onClick={() => register()} title="Ingresar" /> 

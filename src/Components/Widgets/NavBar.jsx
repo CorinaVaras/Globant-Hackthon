@@ -7,7 +7,7 @@ import { useHistory, Link } from 'react-router-dom'
 import { connect } from 'react-redux';
 
 const NavBar = ({user}) => {
-
+  
   const history = useHistory();
    
   const closeSession = () => {
