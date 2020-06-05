@@ -39,7 +39,6 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 255,
     textAlign:'center',
    
-    
   },
   header: {
     display: 'flex',
@@ -48,7 +47,6 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '2em',
     height: '6em',
     backgroundColor:'#E5E5E5'
-    
   },
 
 }));
@@ -80,7 +78,7 @@ const Welcome = () => {
             
         <div className={classes.root}>
             <Paper square elevation={0} className={classes.header}>
-                <Typography className='prueba' >{tutorialSteps[activeStep].label}</Typography>
+                <Typography variant='h6' className='prueba' >{tutorialSteps[activeStep].label}</Typography>
             </Paper>
             <AutoPlaySwipeableViews
                 className="custom-carrousel"

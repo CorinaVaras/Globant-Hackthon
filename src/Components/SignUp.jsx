@@ -145,6 +145,7 @@ const register = (async () => {
                 control={<PurpleSwitch checked={state.checkedA} onChange={handleChange} name="checkedA" />}
                 label="Al ingresar o registrarte, estás aceptando los Términos y
                 Condiciones de ShareFood"
+                
               />
             </FormGroup>
           </div>
